@@ -55,8 +55,11 @@ All scripts can be run from the project root directory:
 # Run scenario experiments
 python experiments/scenarios/run_scenarios.py
 
-# Generate heatmap
+# Generate heatmap (full: 10x10 grid, ~300 ABS runs, takes longer)
 python experiments/heatmaps/heatmap_abc_abs.py
+
+# Quick heatmap test (3x3 grid, 1 repeat, ~5 minutes)
+python experiments/heatmaps/heatmap_abc_abs.py --nx 3 --ny 3 --R 1 --T 50 --dt 0.5
 
 # Historical fitting
 python experiments/historical_fit/fig_historic_fit.py
