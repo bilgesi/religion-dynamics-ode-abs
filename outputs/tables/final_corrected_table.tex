@@ -1,0 +1,74 @@
+% FINAL CORRECTED TABLE WITH INITIAL CONDITIONS - Based on actual scenarios.py values
+\begin{table}[!ht]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\linewidth}{p{1.4cm} p{4.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+Parameter & Description & Scenario A & Scenario B & Scenario C \\
+\midrule
+\multicolumn{5}{l}{\textit{Demography}} \\
+$b$         & Birth rate                 & 0.01 & 0.01 & 0.01 \\
+$\mu$       & Death rate                 & 0.01 & 0.01 & 0.01 \\
+\midrule
+\multicolumn{5}{l}{\textit{Religion 1}} \\
+$\beta_{0}$ & Baseline transmission      & 0.030 & 0.040 & 0.280 \\
+$q$         & Missionary fraction        & 0.050 & 0.050 & 0.050 \\
+$\sigma$    & $B\to M$ rate              & 0.020 & 0.020 & 0.018 \\
+$\kappa$    & $M\to B$ rate              & 0.010 & 0.020 & 0.018 \\
+$\tau_{B}$  & $B\to P$ rate              & 0.002 & 0.002 & 0.0015 \\
+$\tau_{M}$  & $M\to P$ rate              & 0.003 & 0.003 & 0.0020 \\
+$\rho_{B}$  & $B\to S$ (disaffiliation)  & 0.005 & 0.006 & 0.006 \\
+$\rho_{M}$  & $M\to S$ (disaffiliation)  & 0.004 & 0.006 & 0.006 \\
+$\rho_{P}$  & $P\to S$ (disaffiliation)  & 0.001 & 0.001 & 0.001 \\
+\midrule
+\multicolumn{5}{l}{\textit{Religion 2}} \\
+$\beta_{0}$ & Baseline transmission      & 0.450 & 0.020 & 0.550 \\
+$q$         & Missionary fraction        & 0.100 & 0.020 & 0.050 \\
+$\sigma$    & $B\to M$ rate              & 0.030 & 0.005 & 0.018 \\
+$\kappa$    & $M\to B$ rate              & 0.010 & 0.020 & 0.018 \\
+$\tau_{B}$  & $B\to P$ rate              & 0.003 & 0.0003 & 0.0015 \\
+$\tau_{M}$  & $M\to P$ rate              & 0.004 & 0.0003 & 0.0020 \\
+$\rho_{B}$  & $B\to S$ (disaffiliation)  & 0.004 & 0.050 & 0.0225 \\
+$\rho_{M}$  & $M\to S$ (disaffiliation)  & 0.003 & 0.150 & 0.030 \\
+$\rho_{P}$  & $P\to S$ (disaffiliation)  & 0.001 & 0.400 & 0.003 \\
+\midrule
+\multicolumn{5}{l}{\textit{Religions 3--6 (Scenario B only)}} \\
+$\beta_{0}$ & Baseline transmission      & -- & 0.020 & -- \\
+$q$         & Missionary fraction        & -- & 0.020 & -- \\
+$\sigma$    & $B\to M$ rate              & -- & 0.005 & -- \\
+$\kappa$    & $M\to B$ rate              & -- & 0.020 & -- \\
+$\tau_{B}$  & $B\to P$ rate              & -- & 0.0003 & -- \\
+$\tau_{M}$  & $M\to P$ rate              & -- & 0.0003 & -- \\
+$\rho_{B}$  & $B\to S$ (disaffiliation)  & -- & 0.050 & -- \\
+$\rho_{M}$  & $M\to S$ (disaffiliation)  & -- & 0.150 & -- \\
+$\rho_{P}$  & $P\to S$ (disaffiliation)  & -- & 0.400 & -- \\
+\midrule
+\multicolumn{5}{l}{\textit{Mutation}} \\
+$\nu$       & Mutation rates             & \texttt{\{1$\to$2:0.002, 2$\to$1:0\}} &
+\texttt{\{all:0\}} &
+\texttt{\{1$\to$2:0, 2$\to$1:0\}} \\
+\midrule
+\multicolumn{5}{l}{\textit{Initial conditions}} \\
+$S(0)$      & Susceptible                & 6000 & 5000 & 6500 \\
+$B_1(0)$    & Believers (religion 1)     & 3000 & 4200 & 2000 \\
+$M_1(0)$    & Missionaries (religion 1)  & 200 & 300 & 120 \\
+$P_1(0)$    & Practitioners (religion 1)  & 800 & 500 & 180 \\
+$B_2(0)$    & Believers (religion 2)     & 0 & 0 & 100 \\
+$M_2(0)$    & Missionaries (religion 2)  & 0 & 0 & 0 \\
+$P_2(0)$    & Practitioners (religion 2) & 0 & 0 & 0 \\
+$B_{3..6}(0)$ & Believers (religions 3--6) & -- & 0 & -- \\
+$M_{3..6}(0)$ & Missionaries (religions 3--6) & -- & 0 & -- \\
+$P_{3..6}(0)$ & Practitioners (religions 3--6) & -- & 0 & -- \\
+\midrule
+\multicolumn{5}{l}{\textit{Simulation}} \\
+$\Delta t$  & ABS step size              & 0.1 & 0.1 & 0.1 \\
+$t_{\max}$  & Time horizon               & 216 & 216 & 400 \\
+\bottomrule
+\end{tabularx}
+
+\caption{Parameter sets and initial conditions for stylized scenarios.}
+\label{tab:scenario_params}
+\end{table}

@@ -1,0 +1,34 @@
+% EXTRACTED VALUES FOR TRACEABILITY:
+% ====================================
+% 
+% A) Sweden (fig_hist_sweden.pdf):
+% Source: outputs/historical_record_fitting_params.csv, outputs/runs/sweden_poc_fit_summary.json
+% - Years: 1972-2024 (52 observation points, 1981 excluded)
+% - Breakpoint t*: 2000
+% - R² baseline: 0.818, piecewise: 0.978
+% - MAE baseline: 0.052, piecewise: 0.016
+% - RMSE baseline: 0.059, piecewise: 0.020
+%
+% B) Turkey JW (fig_hist_turkey.pdf):
+% Source: outputs/historical_record_fitting_params.csv, outputs/runs/jw_turkey_fit_summary.json
+% - Years: 2014-2024 (11 observation points)
+% - Breakpoint t*: 2021
+% - Carrying capacity K: 0.000120 (fitted)
+% - R² baseline: 0.912, piecewise: 0.924
+% - MAE baseline: 2.90e-06, piecewise: 2.87e-06
+% - RMSE baseline: 3.52e-06, piecewise: 3.28e-06
+%
+% C) New Zealand (fig_hist_newzealand.pdf):
+% Source: outputs/historical_record_fitting_params.csv, out/nz_none_fit_summary.json
+% - Years: 2001, 2006, 2013, 2018, 2023 (5 census observation points)
+% - Share definition: none_count / total_stated
+% - Breakpoint t*: 2013 (selected via grid search from {2006, 2013, 2018})
+% - R² baseline: 0.997, piecewise: 1.000
+% - MAE baseline: 0.0037, piecewise: 2.99e-06
+% - RMSE baseline: 0.0046, piecewise: 3.84e-06
+%
+% ====================================
+% UPDATED PARAGRAPH:
+% ====================================
+
+Fig.~\ref{fig:historic_fit} presents three historical-record fitting case studies, each comparing the observed affiliation share (points) to fitted trajectories from the reduced calibration model introduced in the experimental design (Eq.~\eqref{eq:histfit_reduced_ode}). Specifically, in Fig.~\ref{fig:historic_fit}a, we observe a long-run decline whose slope changes over time: the stationary baseline captures the overall direction but systematically underfits the post-break segment, whereas the piecewise model aligns closely with both the pre-break and post-break phases. The Swedish church membership data spans 1972--2024 (52 observation points, excluding 1981), with a breakpoint at $t^* = 2000$; the baseline model achieves $R^2 = 0.818$ (MAE $= 0.052$), while the piecewise model improves to $R^2 = 0.978$ (MAE $= 0.016$). In Fig.~\ref{fig:historic_fit}b, we see a growth process that slows and stabilizes: the fitted trajectory reproduces the early increase and the later saturation/plateau by shifting the balance between effective recruitment and attrition at the breakpoint, yielding the desired agreement with the observed inflection. The Turkey Jehovah's Witnesses data covers 2014--2024 (11 observation points), with a fitted carrying capacity $K = 0.000120$ and breakpoint at $t^* = 2021$; the baseline model yields $R^2 = 0.912$ (MAE $= 2.90 \times 10^{-6}$), and the piecewise model achieves $R^2 = 0.924$ (MAE $= 2.87 \times 10^{-6}$). In Fig.~\ref{fig:historic_fit}c, we observe a rise-and-fall pattern consistent with short-lived expansion followed by decline; the fitted model tracks both the upswing and the subsequent downturn by allowing the post-break regime to invert the net growth (e.g., by increasing $\rho$ and/or decreasing $\beta$). The New Zealand ``no religion'' share data uses five census points (2001, 2006, 2013, 2018, 2023), where the share is defined as the count of ``no religion'' responses divided by the total number of people who stated a religious affiliation; the breakpoint $t^* = 2013$ was selected via grid search from $\{2006, 2013, 2018\}$, and the baseline model achieves $R^2 = 0.997$ (MAE $= 0.0037$), while the piecewise model reaches $R^2 = 1.000$ (MAE $= 2.99 \times 10^{-6}$).

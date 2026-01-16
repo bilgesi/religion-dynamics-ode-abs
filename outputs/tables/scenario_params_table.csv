@@ -1,0 +1,43 @@
+Category,Parameter,Description,Scenario A,Scenario B,Scenario C
+Demography,b,Birth rate,0.01,0.01,0.01
+Demography,mu,Death rate,0.01,0.01,0.01
+Religion 1,beta_0,Baseline transmission,0.030,0.040,0.280
+Religion 1,q,Missionary fraction,0.050,0.050,0.050
+Religion 1,sigma,B->M rate,0.020,0.020,0.018
+Religion 1,kappa,M->B rate,0.010,0.020,0.018
+Religion 1,tau_B,B->P rate,0.002,0.002,0.0015
+Religion 1,tau_M,M->P rate,0.003,0.003,0.0020
+Religion 1,rho_B,B->S (disaffiliation),0.005,0.006,0.006
+Religion 1,rho_M,M->S (disaffiliation),0.004,0.006,0.006
+Religion 1,rho_P,P->S (disaffiliation),0.001,0.001,0.001
+Religion 2,beta_0,Baseline transmission,0.450,0.020,0.550
+Religion 2,q,Missionary fraction,0.100,0.020,0.050
+Religion 2,sigma,B->M rate,0.030,0.005,0.018
+Religion 2,kappa,M->B rate,0.010,0.020,0.018
+Religion 2,tau_B,B->P rate,0.003,0.0003,0.0015
+Religion 2,tau_M,M->P rate,0.004,0.0003,0.0020
+Religion 2,rho_B,B->S (disaffiliation),0.004,0.050,0.0225
+Religion 2,rho_M,M->S (disaffiliation),0.003,0.150,0.030
+Religion 2,rho_P,P->S (disaffiliation),0.001,0.400,0.003
+Religions 3-6,beta_0,Baseline transmission,N/A,0.020,N/A
+Religions 3-6,q,Missionary fraction,N/A,0.020,N/A
+Religions 3-6,sigma,B->M rate,N/A,0.005,N/A
+Religions 3-6,kappa,M->B rate,N/A,0.020,N/A
+Religions 3-6,tau_B,B->P rate,N/A,0.0003,N/A
+Religions 3-6,tau_M,M->P rate,N/A,0.0003,N/A
+Religions 3-6,rho_B,B->S (disaffiliation),N/A,0.050,N/A
+Religions 3-6,rho_M,M->S (disaffiliation),N/A,0.150,N/A
+Religions 3-6,rho_P,P->S (disaffiliation),N/A,0.400,N/A
+Mutation,nu,Mutation rates,"{1->2:0.002, 2->1:0}","{all:0}","{1->2:0, 2->1:0}"
+Initial conditions,S(0),Susceptible,6000,5000,6500
+Initial conditions,B_1(0),Believers (religion 1),3000,4200,2000
+Initial conditions,M_1(0),Missionaries (religion 1),200,300,120
+Initial conditions,P_1(0),Practitioners (religion 1),800,500,180
+Initial conditions,B_2(0),Believers (religion 2),0,0,100
+Initial conditions,M_2(0),Missionaries (religion 2),0,0,0
+Initial conditions,P_2(0),Practitioners (religion 2),0,0,0
+Initial conditions,B_3-6(0),Believers (religions 3-6),N/A,0,N/A
+Initial conditions,M_3-6(0),Missionaries (religions 3-6),N/A,0,N/A
+Initial conditions,P_3-6(0),Practitioners (religions 3-6),N/A,0,N/A
+Simulation,Delta_t,ABS step size,0.1,0.1,0.1
+Simulation,t_max,Time horizon,216,216,400

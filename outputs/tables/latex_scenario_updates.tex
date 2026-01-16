@@ -1,0 +1,94 @@
+% ============================================================================
+% LATEX DIFF FOR SCENARIO RESULTS SECTION
+% ============================================================================
+
+% 1. UPDATED PARAGRAPH (insert after first sentence)
+% ----------------------------------------------------------------------------
+% Replace the existing paragraph with:
+
+Fig.~\ref{fig:new_religion_threepanel} presents replicate-mean time-series of population shares under the three stylized parameterizations (Scenarios~A-C), illustrating how the same mechanistic model produces qualitatively distinct macrodynamics when only parameters and initial conditions are changed. Panel (a) shows the emergence of a new religion (strain) that begins at (near) zero prevalence and then grows to dominate the population; panel (b) shows repeated low-prevalence bursts of multiple minor religions that fail to persist; and panel (c) shows a regime of stable coexistence in which two religions converge to a near-stationary composition after an initial transient. In particular, in Fig.~\ref{fig:new_religion_threepanel}a, we observe a characteristic \say{establishment-from-rarity} trajectory: religion~2 remains near zero for an initial period (driven by mutation-mediated seeding), then passes an apparent takeoff point where growth accelerates, followed by saturation as the susceptible pool is depleted and competitive conversion intensifies. The incumbent (religion~1) declines as the challenger rises, with the crossover marking a replacement-like transition. Quantitatively, religion~2 crosses the 1\% threshold at $t = 17.6$ weeks, achieves parity with religion~1 at $t = 49.9$ weeks, and reaches final shares of $y_1 = 0.096$ and $y_2 = 0.890$ at $T = 216$ weeks. In Fig.~\ref{fig:new_religion_threepanel}b, the dominant religion remains relatively stable while several minor strains appear, peak, and then shrink, producing a sequence of transient \say{cult-like} waves; importantly, these waves remain bounded and do not accumulate into long-run dominance. The simulation produces 5 distinct bursts, with the largest minor strain reaching a peak share of 0.254, while the combined final share of all minor strains at $T = 216$ weeks is only 0.032. In Fig.~\ref{fig:new_religion_threepanel}c, both religions initially adjust due to the mismatch between initial conditions and the long-run attractor, after which the shares flatten and remain approximately constant over the extended horizon, indicating stable pluralism. The system settles to equilibrium shares of $y_1^* = 0.936$ and $y_2^* = 0.009$ (mean over the final 20\% of the 400-week horizon), with convergence to within $\pm 0.01$ of these values achieved by $t = 192.6$ weeks. Exact parameter values and initial conditions are provided in Table~\ref{tab:scenario_params}.
+
+
+% 2. LATEX TABLE (insert after paragraph, before figure)
+% ----------------------------------------------------------------------------
+
+\begin{table}[!ht]
+  \centering
+  \caption{Parameter sets and initial conditions for stylized scenarios.}
+  \label{tab:scenario_params}
+  \begin{tabular}{lccc}
+    \toprule
+    Parameter & Scenario A & Scenario B & Scenario C \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Demography}} \\
+    $b$ & 0.010 & 0.010 & 0.010 \\
+    $\mu$ & 0.010 & 0.010 & 0.010 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Religion 1}} \\
+    $\beta_0$ & 0.030 & 0.040 & 0.280 \\
+    $q$ & 0.050 & 0.050 & 0.050 \\
+    $\sigma$ & 0.020 & 0.020 & 0.018 \\
+    $\kappa$ & 0.010 & 0.020 & 0.018 \\
+    $\rho_B$ & 0.005 & 0.006 & 0.006 \\
+    $\rho_M$ & 0.004 & 0.006 & 0.006 \\
+    $\rho_P$ & 0.001 & 0.001 & 0.001 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Religion 2}} \\
+    $\beta_0$ & 0.450 & 0.020 & 0.550 \\
+    $q$ & 0.100 & 0.020 & 0.050 \\
+    $\sigma$ & 0.030 & 0.005 & 0.018 \\
+    $\kappa$ & 0.010 & 0.020 & 0.018 \\
+    $\rho_B$ & 0.004 & 0.050 & 0.022 \\
+    $\rho_M$ & 0.003 & 0.150 & 0.030 \\
+    $\rho_P$ & 0.001 & 0.400 & 0.003 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Mutation}} \\
+    $\nu_{1\to 2}$ & 0.002 & 0.000 & 0.000 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Initial conditions}} \\
+    $S(0)$ & 6000 & 5000 & 6500 \\
+    $B_1(0)$ & 3000 & 4200 & 2000 \\
+    $M_1(0)$ & 200 & 300 & 120 \\
+    $P_1(0)$ & 800 & 500 & 180 \\
+    $B_2(0)$ & 0 & 0 & 100 \\
+    $M_2(0)$ & 0 & 0 & 0 \\
+    $P_2(0)$ & 0 & 0 & 0 \\
+    \midrule
+    \multicolumn{4}{l}{\textit{Simulation}} \\
+    $T$ & 216.0 & 216.0 & 400.0 \\
+    $\Delta t$ & 0.1 & 0.1 & 0.1 \\
+    Replicates & 30 & 30 & 30 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% 3. FIXED FIGURE CAPTIONS (replace existing subfigure blocks)
+% ----------------------------------------------------------------------------
+
+\begin{figure}[!ht]
+  \centering
+  % (a)
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig_scenario_A.pdf}
+    \caption{Emergence and replacement of the old religion.}
+    \label{fig:new_religion_timeseries_a}
+  \end{subfigure}\hfill
+  % (b)
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig_scenario_B.pdf}
+    \caption{Transient cult-like waves.}
+    \label{fig:new_religion_sensitivity_b}
+  \end{subfigure}\hfill
+  % (c)
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig_scenario_C.pdf}
+    \caption{Stable coexistence.}
+    \label{fig:scenarioC_timeseries_c}
+  \end{subfigure}
+  \caption{Replicate-mean population-share trajectories for three stylized parameterizations.}
+  \label{fig:new_religion_threepanel}
+\end{figure}
