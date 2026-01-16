@@ -11,13 +11,11 @@ Understanding the spread and decline of religious groups in populations is a fun
 1. [Code Usage](#code-usage)
 2. [The Model](#the-model)
 3. [Key Scenarios](#key-scenarios)
-4. [Project Structure](#project-structure)
-5. [Data Preparation](#data-preparation)
-6. [Dependencies](#dependencies)
-7. [How to Cite](#how-to-cite)
-8. [Contributing](#contributing)
-9. [Bug Reports](#bug-reports)
-10. [Contact](#contact)
+4. [Data Preparation](#data-preparation)
+5. [Dependencies](#dependencies)
+6. [Contributing](#contributing)
+7. [Bug Reports](#bug-reports)
+8. [Contact](#contact)
 
 ## Code Usage
 
@@ -104,47 +102,6 @@ The framework includes three predefined scenarios representing different religio
 - **Mechanism**: High initial conversion rate balanced by high disaffiliation rates
 - **Use Case**: Modeling short-lived religious movements and failed conversions
 
-## Project Structure
-
-```
-abs-religious-spread-model/
-├── src/                    # Core model implementation
-│   ├── abs/                # Agent-based simulation
-│   ├── ode/                # ODE solver and system
-│   ├── model/              # Model parameters and rates
-│   ├── config.py           # Run configuration
-│   ├── scenarios.py        # Predefined scenarios (A, B, C)
-│   └── utils.py            # Utility functions
-│
-├── experiments/            # Experiment scripts
-│   ├── scenarios/          # Scenario runners (A, B, C)
-│   ├── sweeps/             # Parameter sweep experiments
-│   ├── heatmaps/           # Phase transition heatmaps
-│   ├── historical_fit/     # Historical data fitting
-│   └── tests/              # Test and validation scripts
-│
-├── analysis/               # Analysis and visualization
-│   ├── plots.py            # Plotting utilities
-│   ├── metrics.py          # Metric calculations
-│   └── export_*.py         # Data export utilities
-│
-├── data/                   # Data files
-│   ├── raw/                # Raw data by country (nz, finland, sweden, jw)
-│   └── processed/          # Processed time series
-│
-├── outputs/                # Generated outputs
-│   ├── figures/            # PDF/PNG figures
-│   ├── tables/             # LaTeX tables
-│   └── runs/               # Run artifacts (JSON, CSV)
-│
-├── paper/                  # Paper-related files
-│   └── data/               # Data for paper figures
-│
-├── scripts/                # Utility scripts
-├── logs/                   # Log files
-└── _legacy/                # Legacy/cache files
-```
-
 ## Data Preparation
 
 The data files to be analyzed should be CSV files, with each column containing numerical values of each variable. Historical data fitting scripts expect time series data with columns for:
@@ -152,7 +109,7 @@ The data files to be analyzed should be CSV files, with each column containing n
 - Population compartments (S, B, M, P) for each religion
 - Optional: demographic data (birth rates, death rates)
 
-Processed time series are stored in `data/processed/`, while raw data from different countries (New Zealand, Finland, Sweden, Jehovah's Witnesses) are stored in `data/raw/`.
+Processed time series are stored in `data/processed/`, while raw data from different countries (New Zealand, Finland, Sweden, Jehovah's Witnesses from Turkey) are stored in `data/raw/`.
 
 The solution files will be saved in the `outputs/` directory:
 - `outputs/figures/` - Visualization outputs (PDF/PNG)
@@ -172,20 +129,6 @@ Install all dependencies with:
 pip install -r requirements.txt
 ```
 
-## How to Cite
-
-Please cite this work if you compare, use, or build on it:
-
-```bibtex
-@article{your2024religious,
-    title={Religious Spread Model: A Hybrid ODE-ABS Framework for Multi-Strain Religious Dynamics},
-    author={Your Name and Collaborators},
-    journal={Journal Name},
-    year={2024},
-    publisher={Publisher}
-}
-```
-
 ## Contributing
 
 We welcome contributions to this project! Pull requests are very welcome. Please send us an email with your suggestions or requests, or open an issue on GitHub.
@@ -196,8 +139,8 @@ Report bugs and issues on the GitHub Issues page. We guarantee a reply as fast a
 
 ## Contact
 
-- [Your Name] - email | LinkedIn
-- [Collaborator Name] - email | LinkedIn
+- **Bilge Taskin** - bilgetaskinn@outlook.com | [LinkedIn](https://www.linkedin.com/in/bilgesi/)
+- **Teddy Lazebnik** - teddy.lazebnik@ju.se | [LinkedIn](https://www.linkedin.com/in/teddy-lazebnik/)
 
 ---
 
