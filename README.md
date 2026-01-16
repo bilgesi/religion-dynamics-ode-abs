@@ -111,11 +111,6 @@ The data files to be analyzed should be CSV files, with each column containing n
 
 Processed time series are stored in `data/processed/`, while raw data from different countries (New Zealand, Finland, Sweden, Jehovah's Witnesses from Turkey) are stored in `data/raw/`.
 
-The solution files will be saved in the `outputs/` directory:
-- `outputs/figures/` - Visualization outputs (PDF/PNG)
-- `outputs/tables/` - LaTeX tables for papers
-- `outputs/runs/` - Simulation results (JSON, CSV)
-
 ## Dependencies
 
 1. numpy >= 1.24.0
@@ -146,4 +141,4 @@ Report bugs and issues on the GitHub Issues page. We guarantee a reply as fast a
 
 ## License
 
-[Specify your license here, e.g., MIT License]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
