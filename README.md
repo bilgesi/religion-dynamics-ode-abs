@@ -1,4 +1,4 @@
-# Religious Spread Model (ODE + ABS)
+# religion-dynamics-ode-abs
 
 A computational framework for modeling religious dynamics using both Ordinary Differential Equations (ODE) and Agent-Based Simulation (ABS) approaches.
 
