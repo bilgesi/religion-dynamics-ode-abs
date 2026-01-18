@@ -66,7 +66,7 @@ Example scripts demonstrating various use cases are available in the `experiment
 
 ## The Model
 
-![Model Scheme](scheme.png)
+![Model Scheme](paper/figures/scheme.png)
 
 *A schematic view of the model's structure for the case of two religions (|R| = 2). Red (small, top-facing) arrows indicate death.*
 
