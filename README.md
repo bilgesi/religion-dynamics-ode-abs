@@ -66,7 +66,9 @@ Example scripts demonstrating various use cases are available in the `experiment
 
 ## The Model
 
-[A schematic view of the model's structure](scheme.pdf) for the case of two religions (|R| = 2). Red (small, top-facing) arrows indicate death.
+![Model Scheme](scheme.png)
+
+*A schematic view of the model's structure for the case of two religions (|R| = 2). Red (small, top-facing) arrows indicate death.*
 
 The Religious Spread Model is constructed from two complementary approaches:
 
