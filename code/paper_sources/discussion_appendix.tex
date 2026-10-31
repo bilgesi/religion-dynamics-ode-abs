@@ -1,0 +1,101 @@
+\section{Discussion}
+\label{sec:dicussion}
+In this study, we introduce an epidemiologically inspired framework for modeling religious dynamics as a multi-strain diffusion process with role heterogeneity and schism-like missionary relabeling. Building on classical compartment modeling and cultural-diffusion perspectives, the model formalizes contact-driven conversion, institutional retention, and cross-affiliation competition. We evaluate its internally generated dynamics separately from externally forced experiments and from reduced descriptive fits to historical records. An explicit contextual-rate extension is specified, but no social or political coefficient is estimated in the present study.
+
+Our results show that the proposed structure can represent emergence and replacement, externally induced rise-and-fall trajectories, and mutation-supported coexistence under different settings. These outcomes are consistent with the range of adoption trajectories discussed in diffusion and cultural transmission research \cite{rogers2003diffusion,cavalliSforzaFeldman1981cultural,boydRicherson1985culture}, without establishing that the selected parameters explain a particular historical mechanism. The ablations sharpen this distinction: Scenario A requires incoming schism to seed an absent challenger; Scenario B requires imposed introductions and subsequent adverse rate changes to produce the displayed waves; and Scenario C's balanced coexistence depends on its coupling strength. In contrast to threshold-based complex-contagion models \cite{centolaMacy2007complex,reisinger2024patterns}, the present homogeneous-mixing conversion hazard is linear in missionary prevalence and contains no social-reinforcement threshold. The finite-horizon sensitivity map therefore demonstrates parameter sensitivity, not complex contagion or a proven phase transition \cite{fullsack2021regime}.
+
+Interpreted sociologically, the parameters provide a compact language for expressing competition in a shared adherent pool and organizational differences in recruitment and retention \cite{iannaccone1991market}. The historical fits show that Sweden's membership decline can be summarized more accurately by a continuous change in effective rates than by a stationary specification. However, the aggregate data do not distinguish interpersonal conversion from cohort replacement, administrative membership changes, or migration. The Turkish publisher and NZ reporting series further demonstrate why descriptive fit should not be equated with forecasting: simpler linear trends achieve lower held-out errors in those two cases. These observations are compatible with, but do not independently test, wider accounts of institutional change and existential security \cite{berger1967sacredcanopy,norrisInglehart2012sacred,gore2018forecasting}.
+
+The framework may support sociological inquiry in three ways. First, competing hypotheses can be mapped to explicit parameter changes and evaluated using observable predictions and ablations, rather than curve resemblance alone. Second, comparative analysis could relate estimated rates to education, state policy, media exposure, or social heterogeneity when harmonized data and identifiability permit \cite{rogers2003diffusion,norrisInglehart2012sacred}. Such an analysis would require measuring the covariates in Eq.~\eqref{eq:context}, specifying an observation model, and testing against appropriate simpler alternatives. Third, the full model provides a conditional simulator for exploring changes in conversion opportunities, retention, or schism propensity. These simulations are mathematical scenarios, not identified historical counterfactuals or policy-effect estimates. This distinction fits the broader use of epidemic-style formalisms for rumors and information diffusion \cite{daleyKendall1965rumours,kabir2019analysis,zhao2013sir,rui2018spir,matsumoto2025information}.
+
+This study has several limitations. First, homogeneous mixing omits structured networks, spatial heterogeneity, and reinforcement; network or spatial extensions could represent these processes more directly \cite{centolaMacy2007complex,zheng2023spatiotemporal,mahmood2022modeling}. Mobility and migration can also interact with religious change, but are not included here \cite{intro_21,ng2022muslim}. Second, exclusive affiliations omit syncretism and dual practice, and the fixed label set limits the meaning of endogenous innovation. Third, the illustrative settings were selected to explore particular behaviors, not estimated from role-resolved observations. The protected-role accumulation in Scenario C, copying of behavioral roles by the demographic bookkeeping scheme, and the imposed events in B preclude literal demographic interpretation. Fourth, historical fits calibrate reduced curves only; they neither identify the full model nor compare its extra compartments empirically with simpler mechanisms. Low-frequency NZ data, denominator and census-processing differences, organization-reported publisher counts, boundary optima, and small temporal holdouts further restrict inference. Richer observables, cohort and migration data, and an explicit measurement-error model are required before uncertainty in mechanism parameters or cross-context prediction can be assessed reliably \cite{cavalliSforzaFeldman1981cultural,norrisInglehart2012sacred}.
+
+Taken jointly, the proposed model provides a reproducible, hypothesis-generating account of how role-structured conversion, retention, and schism interact in a shared population. Its contribution is a transparent dynamical framework, verified implementation, and a clear separation between endogenous mechanisms, prescribed forcing, and descriptive historical agreement. The results do not establish a universally predictive model of religious change or identify political causes. They instead specify testable mechanisms and the additional measurements needed to evaluate those mechanisms empirically.
+
+\section*{Declarations}
+\subsection*{Funding}
+This study received no funding.
+\subsection*{Data availability}
+The numerical input series, source definitions, access dates, and provenance notes used in this revision accompany the code. Public sources are cited in the text. All historical observations are aggregate data; no individual-level records are used.
+\subsection*{Code availability}
+The revised reproducibility package accompanies this manuscript. It adapts the publicly available project \url{https://github.com/bilgesi/religion-dynamics-ode-abs} \cite{upstream_code} and includes executable configurations, input CSV files, saved numerical results, figure and table generators, and regression tests. The original project license is retained. All main figure filenames are preserved; the package does not depend on downloading a mutable external dataset at execution time.
+\subsection*{Conflicts of interest}
+The authors declare no conflict of interest.
+\subsection*{Author contributions}
+Bilge Taskin: Software, Formal analysis, Investigation, Data curation, Writing -- review and editing, Visualization. Teddy Lazebnik: Conceptualization, Methodology, Validation, Writing -- original draft, Writing -- review and editing, Visualization, Supervision.
+
+\FloatBarrier
+\appendix
+\section{Computation, diagnostics, and reproducibility}
+\label{app:computation}
+\subsection{Exchangeable-agent stochastic computation}
+The fixed state space contains $1+3m$ compartments. Mutation does not make the dimension dynamic and does not prevent ordinary numerical integration. Stochastic simulation is used instead to quantify finite-population variability and discrete seeding, rather than to remedy an ill-defined ODE. This distinction is consistent with comparing equation-based and individual-based computational descriptions \cite{macal2010agent,schimit2023multi,scheidegger2018comparison,hunter2020hybrid,lazebnik2025comparing}.
+
+At the start of each step, let $Q_{ij}(x,t)$ be the per-person hazard of transition from state $i$ to a distinct state $j$, and let an additional destination represent death. Its entries are exactly the conversion, role-change, disaffiliation, mutation, and death rates of Eqs.~\eqref{eq:S-dynamics}--\eqref{eq:P-dynamics}. For $H_i=\sum_jQ_{ij}$, the number leaving compartment $i$ is sampled as
+\begin{equation}
+L_i\sim\operatorname{Binomial}\{X_i,1-\exp(-H_i\Delta t)\}.
+\end{equation}
+Conditional destinations follow a multinomial distribution with weights $Q_{ij}/H_i$. This enforces at most one competing transition or death per individual per step, rather than independently applying mutually incompatible role changes. Independent births entering $i$ are $\operatorname{Poisson}(bX_i\Delta t)$, calculated using start-of-step counts. All changes are applied simultaneously after hazards have been computed. Under homogeneous mixing, this count-based sampler is equivalent to the corresponding exchangeable individual-agent update; it does not introduce a contact network.
+
+The method exactly samples the specified frozen-hazard discrete-time process, but is not an exact continuous-time Markov-chain algorithm. Births and sequential within-step events introduce finite-step approximation relative to the continuous model. Scheduled introductions transfer existing people from $S$ and are applied exactly once at their stated grid times. The ODE is integrated to each actual event endpoint before the transfer or rate change; saved event-time states are right-continuous. Both computations use the same rates, event list, and compartment ordering.
+
+For each replicate we calculate
+\begin{equation}
+y_r(t)=\frac{B_r(t)+M_r(t)+P_r(t)}{N(t)},
+\label{eq:total-share}
+\end{equation}
+and only then average over replicates. This is not replaced by a ratio of mean counts. The displayed bands are pointwise empirical replicate quantiles. The master random seed is 20261022, scenario seeds are separated by 1000, and per-replicate seeds are derived using NumPy \texttt{SeedSequence}; exact seed arrays are saved with the trajectories. No run is selected or omitted on the basis of its outcome.
+
+\subsection{ODE--stochastic comparison}
+The comparison contains exactly 30 configurations: ten perturbed versions of each of A, B, and C, with $T=216$ years and $\Delta t=0.1$ throughout. Each nonzero behavioral rate and each $q_r$ is multiplied by an independent draw from $\operatorname{Uniform}(0.7,1.3)$; probabilities are clipped to $[0,1]$. Nonzero mutation entries are independently perturbed by the same rule, so A and C retain mutation and B retains zero mutation. Initial conditions, demographic rates, and event times are fixed. B's pre- and post-change values of a given religion-specific rate share the same perturbation multiplier. Each configuration uses 20 independent stochastic replicates.
+
+MAE, RMSE, and $R^2=1-\sum_t(y^{\rm ABS}_t-y^{\rm ODE}_t)^2/\sum_t(y^{\rm ODE}_t-\bar y^{\rm ODE})^2$ are calculated per religion on a common grid, using the deterministic series as reference. Case-level values are unweighted means across religions, and reported summary means and standard deviations are across the 30 cases. They are not confidence intervals for a single case. All denominators in these reported $R^2$ computations are nonzero. The 30 configurations, per-religion metrics, and case-level metrics accompany the figure.
+
+Table~\ref{tab:convergence} compares steps $0.1$, $0.05$, and $0.025$ years on a common annual output grid. Both stochastic sampling and finite-population differences contribute to the discrepancy from the deterministic solution. Accordingly, independent Monte Carlo errors do not decrease monotonically with step size; these checks do not establish equality of a finite-population mean and the nonlinear ODE. Conservation, boundary behavior, absent-religion invariance, event-state continuity, and agreement with an independently written RHS are additionally covered by executable regression tests.
+\input{table_convergence.tex}
+
+\subsection{Coexistence and horizon diagnostics}
+For Scenario C, solving the frequency equations gives the equilibrium
+\begin{align}
+(s,b_1,m_1,p_1,b_2,m_2,p_2)
+&\simeq(0.084976,0.116574,0.055359,0.285579,\nonumber\\
+&\hspace{24mm}0.116574,0.055359,0.285579).
+\end{align}
+The constrained Jacobian eliminates $s=1-\sum_r(b_r+m_r+p_r)$; its eigenvalues are approximately
+$-0.101992$, $-0.080837$, $-0.027345$, $-0.016912$, $-0.002723$, and $-0.001000$ year$^{-1}$. The population-conservation zero direction is therefore not mistakenly included in the stability test. This numerical local analysis supports the specific coexistence example, not global attraction or robustness of all symmetric settings. The full equilibrium residual, eigenvalues, ablations, and both sensitivity-map horizons are saved without rounding in the code outputs.
+
+\section{Historical calibration details}
+\label{app:fitting}
+\subsection{Observation construction and source audit}
+\input{table_nzdata.tex}
+NZ no-religion counts through 2018 come from the 2019 Stats NZ release; the 2023 count is from the 2024 census release. The 2001 all-resident total is from the government Te Ara historical census table. The 2006 total is the 2013 census count less the officially reported 2006--2013 increase; later totals are reported directly. Random rounding means some releases differ by three persons. We retain the documented release-specific counts rather than silently swapping later rounded versions. The published percentages in Table~\ref{tab:nzdata} are a separate sensitivity series because their response denominators and processing differ. They are not alternative estimates obtained merely by rounding the primary ratios. In particular, dividing all five numerators by the 2013 population, or summing overlapping affiliations as a denominator, would not define the series used here.
+
+Swedish observations are the 52 percentages in the cited official membership table, with 1981 omitted rather than interpolated. Turkey observations consistently use the \emph{peak} column; the data package also retains the source population and numerator, making the small share values auditable. Peak activity is an administrative maximum over a service year, not a census of all adherents. The source-year references and the extent of primary-source checking are recorded in \texttt{data/provenance.json}.
+
+\subsection{Exact solution and identifiable fitting}
+For a segment satisfying $\dot y=a y-cy^2$, the state propagated from its initial value $y_0$ after duration $u$ is
+\begin{equation}
+y(u)=\frac{y_0e^{au}}{1+(cy_0/a)(e^{au}-1)},\quad a\ne0;
+\qquad y(u)=\frac{y_0}{1+cy_0u},\quad a=0.
+\end{equation}
+For Eq.~\eqref{eq:histfit_reduced_ode}, $a=\beta-\rho$ and $c=\beta$; for Turkey's logistic curve, $a=r$ and $c=r/K$. Sweden's second segment starts at the first segment's predicted value at 2000. No observed breakpoint value enters as a second initial condition. Linear and exponential alternatives are $y_0+a(t-t_0)$ and $y_0e^{g(t-t_0)}$, respectively. Their fitted values remain within the share range over the evaluated periods; they are descriptive baselines, not bounded population models for unrestricted extrapolation.
+
+Least squares uses residuals after the fixed initial observation and scales them by the training-series range only to improve numerical conditioning. Bounds are $0\leq\beta,\rho\leq1$ year$^{-1}$ in each relevant segment, $10^{-8}\leq r\leq1$ year$^{-1}$, and $1.000001\max(y_{\rm train})\leq K\leq1$. Logistic optimization uses $\log K$ internally but reports $K$. The exponential rate is bounded to $[-1,1]$ year$^{-1}$, and the anchored linear slope has its closed-form least-squares solution. Nonlinear optimization uses SciPy \texttt{least\_squares}, tolerances $10^{-12}$, and up to 2500 function evaluations per start. Starting values, bounds, successful-fit flags, and residual-Jacobian singular values are saved. Multiple starts are a robustness check, not a mathematical guarantee of a global optimum.
+
+The Swedish recruitment estimates and the primary NZ loss estimate are at their nonnegative lower bounds. They must not be interpreted as measured zero conversion or zero return to religion. Aggregate shares confound omitted mechanisms, and small residual errors do not identify the full role structure. For the descriptive AICc diagnostic we use
+\begin{equation}
+\mathrm{AICc}=n\log(\mathrm{SSE}/n)+2k^*+
+\frac{2k^*(k^*+1)}{n-k^*-1},\qquad k^*=k+1,
+\end{equation}
+where $k$ is the number of curve parameters, the extra parameter is an independent Gaussian error variance, and $n$ excludes initialization. Constants common to models fitted to the same observations are omitted. This working error model is not a substantive model of census uncertainty or temporal dependence. For the two-parameter NZ curve, $n=4$ makes the correction undefined; no finite AICc is reported. Table~\ref{tab:aicc} also supplies the fitted trend coefficients.
+\input{table_aicc.tex}
+
+\begin{figure}[!htbp]\centering
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{supp_holdout_sweden.pdf}\caption{Sweden; train through 2014.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{supp_holdout_turkey.pdf}\caption{Turkey; train through 2021.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{supp_holdout_newzealand.pdf}\caption{NZ; train through 2018.}\end{subfigure}
+\caption{Genuine held-out evaluations of the selected reduced dynamical specifications. The curves use training-only parameter estimates on both sides of the vertical cutoff. Square points were not used for fitting, breakpoint selection, or state reinitialization. Full-data fits in Figure~\ref{fig:historic_fit} are not substituted for these forecasts.}\label{fig:holdout}
+\end{figure}
+
+\subsection{Reproduction}
+The package includes a version-pinned Python environment, configuration JSON files, a source and data hash manifest, the 17-test regression suite, and all numerical CSV/NPZ/JSON outputs. Run \texttt{python run\_all.py}, followed by \texttt{python make\_paper\_assets.py}, from the code directory; the latter regenerates numerical LaTeX macros and tables. The schematic has an included vector TikZ source. Compile \texttt{main.tex} with PDFLaTeX and BibTeX. No historical point is synthesized and no result is copied from the earlier inconsistent tables. The inspected upstream source files and the precise changes from the public implementation are documented in the accompanying audit notes.

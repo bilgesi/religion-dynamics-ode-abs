@@ -1,0 +1,525 @@
+{
+  "sweden": {
+    "recruitment": {
+      "fit": {
+        "kind": "recruitment",
+        "theta": [
+          6.20063472558198e-19,
+          0.008095736453128126
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          354.56805213396535,
+          11.916740853362011
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 51,
+        "MAE": 0.052753006222160316,
+        "RMSE": 0.059686452061962804,
+        "R2": 0.8129594417139459,
+        "SSE": 0.18168610054699413,
+        "AICc": -280.9916839353102
+      },
+      "training_end": 2014,
+      "holdout_fit": {
+        "kind": "recruitment",
+        "theta": [
+          1.1413100886115776e-21,
+          0.0062802474415285725
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          411.3119469622313,
+          9.129364307124932
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 10,
+        "MAE": 0.14326554505497552,
+        "RMSE": 0.14547213553711674,
+        "R2": -13.823475751591317,
+        "SSE": 0.21162142217729268
+      }
+    },
+    "piecewise": {
+      "fit": {
+        "kind": "piecewise",
+        "theta": [
+          2.581923350081536e-19,
+          0.004080929462837682,
+          1.2685332165641342e-26,
+          0.02068219644426575
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          281.3210252000373,
+          72.49845948338312,
+          3.1548094505702062,
+          1.8202572644707027
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": 2000.0
+      },
+      "fit_metrics": {
+        "n": 51,
+        "MAE": 0.00809131136994544,
+        "RMSE": 0.009029392903352848,
+        "R2": 0.9957194323524701,
+        "SSE": 0.004158026746359057,
+        "AICc": -468.80822144572943
+      },
+      "training_end": 2014,
+      "holdout_fit": {
+        "kind": "piecewise",
+        "theta": [
+          2.575783454903776e-32,
+          0.004220843178953587,
+          0.0012668461283311188,
+          0.019295110751292956
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          357.56511518632624,
+          57.60000467102659,
+          3.014244944323288,
+          1.238567599211607
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": 2000.0
+      },
+      "holdout_metrics": {
+        "n": 10,
+        "MAE": 0.022439784575487752,
+        "RMSE": 0.023705961808416366,
+        "R2": 0.6063542387191909,
+        "SSE": 0.005619726252620954
+      }
+    },
+    "linear": {
+      "fit": {
+        "kind": "linear",
+        "theta": [
+          -0.00676724334877152
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 51,
+        "MAE": 0.04589976702222148,
+        "RMSE": 0.05153230401459456,
+        "R2": 0.86057412368924,
+        "SSE": 0.13543449620968254,
+        "AICc": -298.2357333650777
+      },
+      "training_end": 2014,
+      "holdout_fit": {
+        "kind": "linear",
+        "theta": [
+          -0.0054944714554579655
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 1972.0,
+        "y0": 0.952,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 10,
+        "MAE": 0.12771260586574656,
+        "RMSE": 0.129648048988661,
+        "R2": -10.773955496645618,
+        "SSE": 0.1680861660656624
+      }
+    }
+  },
+  "turkey": {
+    "logistic": {
+      "fit": {
+        "kind": "logistic",
+        "theta": [
+          0.15240577140203002,
+          9.581640051345132e-05
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          12.93906967483896,
+          0.3310970589328646
+        ],
+        "at_bound": false,
+        "bounds_optimizer": [
+          [
+            1e-08,
+            -9.622539769966856
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 10,
+        "MAE": 3.11604132044675e-06,
+        "RMSE": 3.400867441336579e-06,
+        "R2": 0.9181814767007328,
+        "SSE": 1.1565899353543207e-10,
+        "AICc": -241.82960058154714
+      },
+      "training_end": 2021,
+      "holdout_fit": {
+        "kind": "logistic",
+        "theta": [
+          0.08658728616567087,
+          0.9999999999996012
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          22.818864734775246,
+          4.806082451858026e-06
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            1e-08,
+            -9.713663676837188
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 3,
+        "MAE": 7.230360203753043e-06,
+        "RMSE": 9.266337577347905e-06,
+        "R2": -31.05107611036682,
+        "SSE": 2.575950362921095e-10
+      }
+    },
+    "exponential": {
+      "fit": {
+        "kind": "exponential",
+        "theta": [
+          0.07695103998375102
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 10,
+        "MAE": 3.3589956870676822e-06,
+        "RMSE": 3.999805676486517e-06,
+        "R2": 0.8868251277516479,
+        "SSE": 1.5998445449653768e-10,
+        "AICc": -242.87100986377112
+      },
+      "training_end": 2021,
+      "holdout_fit": {
+        "kind": "exponential",
+        "theta": [
+          0.08658363958994941
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 3,
+        "MAE": 7.230785948345099e-06,
+        "RMSE": 9.266778387809385e-06,
+        "R2": -31.05412559687357,
+        "SSE": 2.5761954506631334e-10
+      }
+    },
+    "linear": {
+      "fit": {
+        "kind": "linear",
+        "theta": [
+          3.5055084422085366e-06
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 10,
+        "MAE": 3.298626117119527e-06,
+        "RMSE": 3.5767301571657055e-06,
+        "R2": 0.9095008331447685,
+        "SSE": 1.2792998617178613e-10,
+        "AICc": -245.10694506257119
+      },
+      "training_end": 2021,
+      "holdout_fit": {
+        "kind": "linear",
+        "theta": [
+          3.5902472247192336e-06
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2014.0,
+        "y0": 3.2605820105820104e-05,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 3,
+        "MAE": 3.2485902064963536e-06,
+        "RMSE": 3.885876654115679e-06,
+        "R2": -4.636433690809081,
+        "SSE": 4.530011211300378e-11
+      }
+    }
+  },
+  "newzealand": {
+    "recruitment": {
+      "fit": {
+        "kind": "recruitment",
+        "theta": [
+          0.047966086254562626,
+          1.754114059315445e-18
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          59.94913814521662,
+          1.0810409915376045
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 2001.0,
+        "y0": 0.2750794695607501,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 4,
+        "MAE": 0.011656589748401044,
+        "RMSE": 0.013722550758261986,
+        "R2": 0.9681376056443273,
+        "SSE": 0.0007532335972523064,
+        "AICc": null
+      },
+      "training_end": 2018,
+      "holdout_fit": {
+        "kind": "recruitment",
+        "theta": [
+          0.04910733056812843,
+          2.1745606951339827e-17
+        ],
+        "success": true,
+        "n_starts": 32,
+        "jac_singular_values": [
+          47.04816896739068,
+          0.6122271096291827
+        ],
+        "at_bound": true,
+        "bounds_optimizer": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "start": 2001.0,
+        "y0": 0.2750794695607501,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 1,
+        "MAE": 0.011974336022418264,
+        "RMSE": 0.011974336022418264,
+        "R2": null,
+        "SSE": 0.00014338472317778364
+      }
+    },
+    "linear": {
+      "fit": {
+        "kind": "linear",
+        "theta": [
+          0.011010324839748464
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2001.0,
+        "y0": 0.2750794695607501,
+        "break_year": null
+      },
+      "fit_metrics": {
+        "n": 4,
+        "MAE": 0.012717500919954633,
+        "RMSE": 0.015187903576198484,
+        "R2": 0.9609694762326706,
+        "SSE": 0.0009226896601596109,
+        "AICc": -17.49804788252804
+      },
+      "training_end": 2018,
+      "holdout_fit": {
+        "kind": "linear",
+        "theta": [
+          0.011080929855333132
+        ],
+        "success": true,
+        "n_starts": 1,
+        "jac_singular_values": [],
+        "at_bound": false,
+        "start": 2001.0,
+        "y0": 0.2750794695607501,
+        "break_year": null
+      },
+      "holdout_metrics": {
+        "n": 1,
+        "MAE": 0.003023178394579884,
+        "RMSE": 0.003023178394579884,
+        "R2": null,
+        "SSE": 9.139607605454604e-06
+      }
+    }
+  },
+  "NZ_published_percent_sensitivity": {
+    "fit": {
+      "kind": "recruitment",
+      "theta": [
+        0.08203259178225686,
+        0.022730139595565507
+      ],
+      "success": true,
+      "n_starts": 32,
+      "jac_singular_values": [
+        57.66083989956963,
+        1.0909335611790736
+      ],
+      "at_bound": false,
+      "bounds_optimizer": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "start": 2001.0,
+      "y0": 0.29600000000000004,
+      "break_year": null
+    },
+    "fit_metrics": {
+      "n": 4,
+      "MAE": 0.004776421179253393,
+      "RMSE": 0.005228124734690526,
+      "R2": 0.9934977830199122,
+      "SSE": 0.00010933315296593154
+    },
+    "warning": "Published percentage denominators/processing differ across censuses; not primary series."
+  }
+}

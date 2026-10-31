@@ -28,6 +28,7 @@ ENV/
 # Logs
 *.log
 logs/
+!code/results/*.log
 
 # Output directories (heavy simulation outputs)
 # Keep figures, ignore run data

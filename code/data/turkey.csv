@@ -1,0 +1,12 @@
+year,population,peak_publishers,average_publishers_where_reported,share,upstream_url
+2014,75600000,2465,2408.0,3.2605820105820104e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2015,77700000,2611,2514.0,3.3603603603603606e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2016,79000000,2829,2727.0,3.5810126582278484e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2017,79815000,3030,,3.7962788949445596e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2018,80810525,3506,,4.338543772608828e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2019,83430000,4221,3933.0,5.05933117583603e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2020,84339000,4875,4667.0,5.780244015224274e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2021,85043000,5141,4994.0,6.0451771456792444e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2022,85562000,5438,5304.0,6.355625160702181e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2023,85957000,5692,5545.0,6.621915608967275e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv
+2024,85372000,5318,4954.0,6.229208639835075e-05,https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv

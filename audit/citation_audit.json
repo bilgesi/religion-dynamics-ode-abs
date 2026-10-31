@@ -1,0 +1,19 @@
+{
+  "cited_keys": 116,
+  "bib_entries": 127,
+  "missing_keys": [],
+  "retained_unused_entries": [
+    "Ekonomska2022NPIs",
+    "Lazebnik2022IndoorRoomCFD",
+    "Lazebnik2023BorderClosure",
+    "SEPS2023InterventionPolicy",
+    "asbridge2004first",
+    "figurenz_nz_census_religion_2013_2018_2023",
+    "intro_34",
+    "lazebnik2023hybrid",
+    "montgomery1991spread",
+    "oliphant2007python",
+    "statistics_finland_religious_community_1990_2019"
+  ],
+  "bibliographic_scope": "Supplied library retained; corrected specific misapplied/malformed entries and added verified data sources. Not an independent exhaustive audit of all cited books and articles."
+}

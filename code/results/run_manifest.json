@@ -1,0 +1,25 @@
+{
+  "seed": 20261022,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "pandas": "2.2.3",
+  "matplotlib": "3.10.8",
+  "numba": "0.65.1",
+  "input_and_source_sha256": {
+    "src/fitting.py": "61f11b33e545c6f446128c94ae880f1e1d1b0df8b27eba6c93ae1347c1e05655",
+    "src/model.py": "2f7bf9af61d3d0902ce12a917c497652e75b543eab09ed33bb5cde4c0e0beaff",
+    "configs/scenario_A.json": "d4ebc7ccc83fb1f2bc32189aed2e7a319d439288b4cdfed16108fd7e0ab989c8",
+    "configs/scenario_B.json": "22b950f3e84640d14c15d6b6bb7bd8a9148da5f80caa36f1dffbfdf8a8e0438a",
+    "configs/scenario_C.json": "a1106d6697f532964fe0903d09dbdf0e1b8eee40dc0fd25d96367d6d1043df16",
+    "data/newzealand.csv": "7e1387d5370b5cb3571bfa55078417df23dc0853ba46933c96e1581353261c3f",
+    "data/provenance.json": "a8ec9bf71a20f032869114b797498ffc98ec456b84a9b2dc36aa2094b9b837b2",
+    "data/sweden.csv": "50cf2024599a3d961ad6949015118a84260071845648f1bf0c03157a4e316abf",
+    "data/turkey.csv": "452da775776fe7f2f0f13880437a7646f5ea2a2bb6f096a74e913a7ee1685eaf",
+    "tests/test_model.py": "8310a571835ceb8aa80fd1c25fddf1ddfa2412c7324eb8b138253d7f52543601",
+    "make_paper_assets.py": "e2a4eae595cc0b7154d1fc42ecff3afa65360d53a1aa9a86ddc5d8441793c2d6",
+    "run_all.py": "05db3c2256bbf21ac515d4821e3c6730b719306e8b3b530f5d218a5422b17e6e"
+  },
+  "numerical_pipeline": "run_all.py"
+}

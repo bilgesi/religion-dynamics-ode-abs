@@ -1,0 +1,12 @@
+\begin{table}[!htbp]\centering\small
+\caption{Historical fitting and held-out errors. Sweden and NZ MAE values are percentage points; Turkey MAE values are publishers per 100,000 residents. $n$ excludes the fixed initial observation and $k$ counts fitted curve parameters. Holdouts are 2015--2024 (Sweden), 2022--2024 (Turkey), and 2023 (NZ). Lower MAE is better.}\label{tab:fitmetrics}
+\begin{tabular}{llrrrrr}\toprule Case & Specification & $n$ & $k$ & In-sample $R^2$ & Fit MAE & Holdout MAE\\\midrule
+Sweden & Constant rates & 51 & 2 & 0.813 & 5.275 & 14.327\\
+Sweden & Rate shift & 51 & 4 & 0.996 & 0.809 & 2.244\\
+Sweden & Linear trend & 51 & 1 & 0.861 & 4.590 & 12.771\\
+Turkey & Logistic & 10 & 2 & 0.918 & 0.312 & 0.723\\
+Turkey & Exponential & 10 & 1 & 0.887 & 0.336 & 0.723\\
+Turkey & Linear trend & 10 & 1 & 0.910 & 0.330 & 0.325\\
+NZ & Constant rates & 4 & 2 & 0.968 & 1.166 & 1.197\\
+NZ & Linear trend & 4 & 1 & 0.961 & 1.272 & 0.302\\
+\bottomrule\end{tabular}\end{table}

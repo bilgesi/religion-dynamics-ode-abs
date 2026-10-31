@@ -1,0 +1,111 @@
+{
+  "main_pdf_pages": 30,
+  "figures": {
+    "scheme.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        343.1610107421875,
+        293.9989929199219
+      ],
+      "bytes": 59279
+    },
+    "fig_scenario_A.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.2099914550781,
+        253.97874450683594
+      ],
+      "bytes": 95110
+    },
+    "fig_scenario_B.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.2099914550781,
+        253.97874450683594
+      ],
+      "bytes": 209544
+    },
+    "fig_scenario_C.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.28375244140625,
+        253.97874450683594
+      ],
+      "bytes": 374007
+    },
+    "fig_hist_sweden.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        347.6365966796875,
+        254.06375122070312
+      ],
+      "bytes": 18888
+    },
+    "fig_hist_turkey.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.13812255859375,
+        254.06375122070312
+      ],
+      "bytes": 17564
+    },
+    "fig_hist_newzealand.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.26873779296875,
+        254.06375122070312
+      ],
+      "bytes": 17558
+    },
+    "heatmap.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        410.4920654296875,
+        279.5567626953125
+      ],
+      "bytes": 30842
+    },
+    "ode_abs_compare.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        417.9480285644531,
+        261.3418884277344
+      ],
+      "bytes": 22201
+    },
+    "supp_holdout_sweden.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.1006164550781,
+        239.66375732421875
+      ],
+      "bytes": 18302
+    },
+    "supp_holdout_turkey.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.041259765625,
+        239.66375732421875
+      ],
+      "bytes": 17762
+    },
+    "supp_holdout_newzealand.pdf": {
+      "pages": 1,
+      "dimensions_points": [
+        348.19061279296875,
+        239.66375732421875
+      ],
+      "bytes": 17478
+    }
+  },
+  "tex_self_contained_tables_and_macros": true,
+  "latex_errors": false,
+  "undefined_citations_or_references": false,
+  "overfull_boxes": false,
+  "text_outside_page": [],
+  "regression_tests": 17,
+  "regression_tests_pass": true,
+  "visual_review": "Rendered manuscript pages and all original-named figures; critical schematic/figure/table pages visually reviewed.",
+  "historical_numerics": "All metric rows regenerated from saved prediction curves, excluding the fixed initial point.",
+  "source_scope": "See data/provenance.json and audit/UPSTREAM_PROVENANCE.md; no immutable upstream commit claimed."
+}

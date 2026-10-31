@@ -1,0 +1,22 @@
+test_absence_without_schism (test_model.ModelTests.test_absence_without_schism) ... ok
+test_evolved_state_across_seed (test_model.ModelTests.test_evolved_state_across_seed) ... ok
+test_exact_reduced_flow (test_model.ModelTests.test_exact_reduced_flow) ... ok
+test_fit_initialization_fixed (test_model.ModelTests.test_fit_initialization_fixed) ... ok
+test_invalid_units (test_model.ModelTests.test_invalid_units) ... ok
+test_mass_balance (test_model.ModelTests.test_mass_balance) ... ok
+test_no_creation_without_seed_B (test_model.ModelTests.test_no_creation_without_seed_B) ... ok
+test_no_stochastic_spontaneous_emergence (test_model.ModelTests.test_no_stochastic_spontaneous_emergence) ... ok
+test_optional_context (test_model.ModelTests.test_optional_context) ... ok
+test_piecewise_continuity (test_model.ModelTests.test_piecewise_continuity) ... ok
+test_positive_states_and_conservation (test_model.ModelTests.test_positive_states_and_conservation) ... ok
+test_rhs_against_written_equations (test_model.ModelTests.test_rhs_against_written_equations) ... ok
+test_seed_happens_once_at_zero (test_model.ModelTests.test_seed_happens_once_at_zero) ... ok
+test_seed_preserves_population (test_model.ModelTests.test_seed_preserves_population) ... ok
+test_share_normalization_per_replicate (test_model.ModelTests.test_share_normalization_per_replicate) ... ok
+test_stochastic_closed_population (test_model.ModelTests.test_stochastic_closed_population) ... ok
+test_stochastic_reproducible (test_model.ModelTests.test_stochastic_reproducible) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.251s
+
+OK

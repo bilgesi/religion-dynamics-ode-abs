@@ -1,0 +1,83 @@
+\section{Model Analysis}
+\subsection{Experimental design}
+\label{sec:experiments}
+We distinguish three tasks: controlled simulations of the full model, descriptive historical fits of reduced curves, and a finite-horizon sensitivity map. All simulated rates and horizons are expressed in years. The stylized parameterizations are illustrative, not calibrated historical time scales. We use $N_0=10{,}000$, $b=\mu=0.01$, and stochastic step $\Delta t=0.1$ year. Each main scenario has 100 independent replicates. The deterministic system is solved with adaptive DOP853, relative and absolute tolerances $10^{-9}$, with integration restarted from the evolved endpoint at every scheduled event. Details of the exchangeable-agent stochastic implementation, seeds, software versions, and numerical checks appear in the Appendix.
+
+\subsubsection{Stylized religious dynamics}
+\input{table_scenarios.tex}
+\input{table_initials.tex}
+\textbf{Scenario A (schism-mediated emergence and replacement).}
+Religion 1 is the only initially present religion, with 40\% of the population affiliated; 60\% is unaffiliated. Religion 2 starts absent and is seeded solely by missionary relabeling at $\nu_{12}=0.002$ year$^{-1}$. Its conversion rate is $0.45$, compared with $0.03$ for religion 1. All other settings are listed in Tables~\ref{tab:scenario_params}--\ref{tab:initials}. We simulate 216 years and compare the result with a no-schism ablation that changes only $\nu_{12}$ to zero.
+
+\textbf{Scenario B (externally introduced, forced transient movements).}
+Five initially absent minor religions are introduced sequentially by transfers from $S$, without mutation. Each begins with 50 passive believers and 100 missionaries. At its separately prescribed change time, its conversion rate decreases from $0.75$ to $0.02$, while its disaffiliation rates increase (Table~\ref{tab:scenario_params}). Table~\ref{tab:schedules} specifies every event. This experiment asks whether the same compartmental structure represents growth followed by decline under explicit external forcing; it does not test spontaneous emergence or endogenous recurrent waves. Ablations remove either all introductions or all subsequent rate changes.
+\input{table_schedule.tex}
+
+\textbf{Scenario C (symmetric, mutation-supported coexistence).}
+The religions have identical behavioral parameters but unequal initial prevalence. Symmetric missionary relabeling is $\nu_{12}=\nu_{21}=0.02$ year$^{-1}$. We integrate to 1000 years to examine relaxation, not to make a millennium-scale social forecast. We locate a coexistence equilibrium and evaluate the Jacobian after eliminating $S$ using the population-sum constraint. Negative real parts of all six remaining eigenvalues establish local, not global, asymptotic stability. A separate ablation reduces both relabeling rates to $0.0002$; symmetry of behavioral parameters is not assumed sufficient for balanced coexistence.
+
+\subsubsection{Historical records and observation definitions}
+\label{subsec:hist_fit}
+\textbf{Sweden (membership decline).}
+We use the Church of Sweden's official membership percentages for 1972--2024, excluding 1981, for which the source has no population-register figure: 52 observations in total \cite{svenskakyrkan_membership_1972_2024}. The observed variable is membership divided by population, not the missionary compartment. A constant-rate reduced model is compared with a four-rate specification using a fixed breakpoint at 2000. The breakpoint is a prespecified descriptive comparison; its timing does not identify the effect of any particular institutional change. The source also records changes in membership rules, underscoring that these rates aggregate more than interpersonal conversion.
+
+\textbf{Turkey (active publisher reporting).}
+We use annual peak Jehovah's Witness publisher counts divided by the population reported in the corresponding service-year table, 2014--2024 (11 observations) \cite{jw_service_year_report_2024,jw_country_reports_2024,jw_historical_reports,upstream_code}. Peak and annual-average publisher counts are not mixed. These organizational reports measure active publishing rather than all adherents, so they are not observations of $B+M+P$. We fit the two-parameter logistic description $\dot y=r y(1-y/K)$, where $r$ is an effective growth rate and $K$ is an asymptotic share. We do not separately fit three redundant parameters in $\beta y(K-y)-\rho y$, since that equation identifies at most $\beta K-\rho$ and $\beta$ from an ideal trajectory. We compare the logistic curve with anchored linear and exponential trends, without an additional fitted breakpoint.
+
+\textbf{New Zealand (no-religion reporting).}
+We assemble no-religion counts for the 2001, 2006, 2013, 2018, and 2023 censuses from Stats NZ releases \cite{statsnz2019religion,statsnz2024religion}. We divide each by the corresponding \emph{all-resident census count}, not a sum of potentially overlapping affiliation categories or a mixture of response-based denominators \cite{teara2001population,statsnz2013population,statsnz2018population,statsnz2024religion}. Table~\ref{tab:nzdata} supplies all five numerators and denominators. Consequently, the complement includes unclassified or nonresponding residents as well as people reporting a religion. This is a descriptive two-category reporting series, not a closed observation of religious versus nonreligious switching. Common denominator definitions do not eliminate changes in response, imputation, or census processing. We therefore also fit the separately retained published percentage series as a sensitivity check, without mixing it into the primary count ratio. No breakpoint is fitted to five observations.
+
+\paragraph{Fitting and temporal holdouts.}
+All curves start at the first observed value. Dynamical parameters are fitted by bounded nonlinear least squares, using 32 deterministic multi-start initializations for the nonlinear two- and four-parameter fits. Exact continuous segment solutions replace numerical integration for these reduced equations. The Sweden state is propagated continuously through 2000 and is never reset to an observed breakpoint value. Because the first point is fixed, all reported fitting metrics exclude it, leaving 51, 10, and 4 informative residuals respectively. An anchored linear trend has one fitted slope; the Turkish exponential comparison has one fitted rate. All comparisons minimize squared errors on the original share scale. Bounds, diagnostic AICc values, and the exact solution are given in the Appendix.
+
+We also fit only observations through 2014 for Sweden, 2021 for Turkey, and 2018 for New Zealand, and evaluate the remaining 10, 3, and 1 observations without updating parameters or reinitializing states. These are illustrative historical holdouts, not prospective preregistered forecasts. Their small number, especially one NZ point, limits generalization. No uncertainty intervals for historical mechanism parameters are asserted; boundary solutions and sensitivity to the reporting definition are reported rather than interpreted as precise causal estimates.
+
+\subsubsection{Finite-horizon sensitivity}
+\label{subsec:heatmap}
+We vary Scenario A's $\beta_2$ over 21 equally spaced values in $[0.03,0.60]$ and $\rho_2^M$ over 21 values in $[0.001,0.15]$, keeping all other settings fixed. Each of the 441 configurations is solved deterministically. We report the continuous share $y_2(216)$ and retain $y_2(432)$ to assess horizon dependence. There are no threshold-assigned ``takeover'' or ``coexistence'' labels, and the map does not estimate takeover probabilities or establish a bifurcation.
+
+\subsection{Results}
+\label{sec:results}
+\subsubsection{Full-model simulations and mechanism checks}
+Figure~\ref{fig:new_religion_threepanel} shows mean trajectories with pointwise 2.5th--97.5th percentiles across stochastic runs. In Scenario A, religion 2 first exceeds 1\% at year \AOnePercent{} and reaches parity with religion 1 at year \AParity{}. At year 216, mean shares are $y_1=\AFinalOne$ and $y_2=\AFinalTwo$. Removing mutation leaves religion 2 identically absent. Thus its establishment in this experiment is genuinely schism-mediated, while its subsequent expansion follows from the assigned conversion and retention advantage.
+
+In Scenario B, each minor religion peaks at its externally specified rate-change time. Peak mean shares range from approximately 0.136 to 0.237, and the combined minor share at year 216 is \BFinalMinor{}. The incumbent ends at \BFinalIncumbent{}, rather than remaining constant. Removing introductions leaves every minor religion absent; removing the rate changes instead allows the earliest minor religion to persist at a terminal deterministic share of approximately 0.651. The short-lived waves therefore depend on the prescribed schedule. They are neither evidence of autonomous oscillations nor a prediction of movement-specific collapse dates.
+
+In Scenario C, terminal mean shares are \CPopOne{} and \CPopTwo{}. The symmetric deterministic equilibrium has $y_1=y_2=\CEquilibrium$ and all six constrained Jacobian eigenvalues are negative, with largest real part \CMaxEigen{} year$^{-1}$. This supports locally stable coexistence for the specified parameterization. With the much weaker symmetric mutation rate $0.0002$, the unequal initialization instead yields deterministic terminal shares of approximately 0.905 and 0.031 at year 1000. Balanced coexistence is therefore a property of the specified coupling and role structure, not a consequence of parameter symmetry alone. The equilibrium also allocates a large fraction to the protected $P$ role; these uncalibrated role proportions should not be read as realistic priesthood prevalence.
+
+\begin{figure}[!htbp]\centering
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_scenario_A.pdf}\caption{Schism-mediated replacement.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_scenario_B.pdf}\caption{Externally forced transients.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_scenario_C.pdf}\caption{Mutation-supported coexistence.}\end{subfigure}
+\caption{Full-model stochastic simulations (100 replicates per scenario). Lines are replicate-mean shares and shaded bands are pointwise central 95\% replicate intervals, not confidence intervals for historical predictions. Scenario B uses the complete forcing schedule in Table~\ref{tab:schedules}. Time is in years, with the longer horizon in C chosen for relaxation.}
+\label{fig:new_religion_threepanel}\end{figure}
+
+\subsubsection{Historical descriptive fits and held-out performance}
+\label{subsec:hist_results}
+Figure~\ref{fig:historic_fit} and Table~\ref{tab:fitmetrics} separate fitted agreement from held-out errors. For Sweden, the fixed-break, continuous rate-shift fit improves $R^2$ from \SweRecruitmentR{} to \SwePiecewiseR{}, and MAE from \SweRecruitmentMAE{} to \SwePiecewiseMAE{} percentage points. The fitted recruitment rates lie at the lower bound in both segments; the effective loss rate increases from approximately 0.00408 to 0.02068 year$^{-1}$. This is a descriptive summary of declining membership, not evidence that recruitment literally ceased. Training through 2014 gives a held-out MAE of \SwePiecewiseHoldout{} percentage points for the rate-shift model, compared with \SweLinearHoldout{} for the anchored linear trend.
+
+For Turkey, the logistic description attains $R^2=\TurLogisticR$ and MAE \TurLogisticMAE{} peak publishers per 100,000 residents. It summarizes the broad increase but cannot reproduce the observed 2024 decline as an actual downturn. Its held-out MAE is \TurLogisticHoldout{} publishers per 100,000, compared with \TurLinearHoldout{} for the linear trend. Thus the additional saturation parameter does not establish a predictive advantage on this holdout.
+
+New Zealand's constructed no-religion share increases at every census; it exhibits no rise-and-fall episode. The constant-rate fit has $R^2=\NZRecruitmentR$ and MAE \NZRecruitmentMAE{} percentage points. Its 2023 holdout error is \NZRecruitmentHoldout{} percentage points, versus \NZLinearHoldout{} for the linear trend. Fitting the separately published percentage series instead raises in-sample $R^2$ to approximately 0.993 and changes the estimated rates, illustrating sensitivity to response denominators and data processing. Neither fit validates conversion mechanisms, and near-perfect interpolation of five points is not sought. Table~\ref{tab:historical_params} reports every dynamical parameter, including both Sweden periods.
+
+\begin{figure}[!htbp]\centering
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_hist_sweden.pdf}\caption{Sweden: membership.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_hist_turkey.pdf}\caption{Turkey: peak publishers.}\end{subfigure}\hfill
+\begin{subfigure}[t]{.32\textwidth}\includegraphics[width=\linewidth]{fig_hist_newzealand.pdf}\caption{NZ: no-religion reporting.}\end{subfigure}
+\caption{Observed records and full-sample descriptive fits. The observables differ across cases and are not treated as interchangeable measurements of the full model. NZ uses no-religion counts divided by all census residents. Dashed/dotted comparisons and legends identify the fitted specifications; the Sweden change is continuous at 2000. Held-out forecasts are shown separately in the Appendix.}
+\label{fig:historic_fit}\end{figure}
+\input{table_metrics.tex}
+\input{table_fitparams.tex}
+
+\subsubsection{Parameter sensitivity and numerical agreement}
+Figure~\ref{fig:splitting_regimes} displays continuous finite-horizon changes in religion 2's prevalence as conversion and missionary disaffiliation vary. Greater recruitment and lower loss generally favor expansion in this configuration, but a visible gradient is not itself a phase transition. Doubling the horizon changes the terminal share by as much as \HorizonDifference{} percentage points across the grid. It would therefore be misleading to assign universal long-run regimes using a single finite-horizon threshold.
+
+\begin{figure}[!htbp]\centering\includegraphics[width=.76\linewidth]{heatmap.pdf}
+\caption{Deterministic finite-horizon sensitivity of Scenario A on a $21\times21$ grid. Color denotes $y_2(216)$, not a categorical regime or takeover probability. All rates are annual, and other parameters are fixed. The companion data include year-432 values to expose horizon sensitivity.}
+\label{fig:splitting_regimes}\end{figure}
+
+Across 30 perturbed configurations (ten per scenario), using 20 stochastic replicates per configuration, mean religion-averaged MAE is $\BridgeMAE\pm\BridgeMAESD$ and mean $R^2$ is $\BridgeR\pm\BridgeRSD$; the uncertainty here is the sample standard deviation across configurations. The respective ranges are [\BridgeMAEMin, \BridgeMAEMax] and [\BridgeRMin, \BridgeRMax]. Figure~\ref{fig:bridge_full} displays exactly these 30 case-level observations. A and C include mutation; B has none and retains its scheduled introductions and rate changes. These checks concern implementation agreement, not empirical validity.
+
+\begin{figure}[!htbp]\centering\includegraphics[width=.76\linewidth]{ode_abs_compare.pdf}
+\caption{ODE versus stochastic replicate-mean agreement for 30 configurations, with 20 replicates each. Each marker averages MAE and $R^2$ over that configuration's religions; marker shape identifies the source scenario. MAE on the horizontal axis is expressed in percentage points. Mutation is included in A and C, not B.}
+\label{fig:bridge_full}\end{figure}

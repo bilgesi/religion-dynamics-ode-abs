@@ -1,0 +1,44 @@
+{
+  "access_date": "2026-10-22",
+  "sweden": {
+    "n": 52,
+    "years": "1972-2024 excluding 1981",
+    "observable": "Church membership / population, source-reported percentages / 100",
+    "sources": [
+      "https://www.svenskakyrkan.se/filer/d0a30387-feff-48b3-810e-2c8225f2fb54.pdf?id=2705246"
+    ],
+    "verification": "All 52 percentages checked against pages 2-3 of source PDF; no interpolated values."
+  },
+  "turkey": {
+    "n": 11,
+    "years": "2014-2024",
+    "observable": "PEAK active publishers / report population; not total affiliation",
+    "sources": [
+      "https://raw.githubusercontent.com/bilgesi/religion-dynamics-ode-abs/main/data/raw/jw/jw_timeseries_turkey_2014_2024.csv",
+      "https://www.jw.org/en/library/books/2017-service-year-report/2017-country-territory/",
+      "https://www.jw.org/en/library/books/2018-service-year-report/2018-country-territory/",
+      "https://www.jw.org/en/library/books/2024-Service-Year-Report-of-Jehovahs-Witnesses-Worldwide/2024-Country-and-Territory-Reports/",
+      "https://wol.jw.org/en/wol/d/r1/lp-e/302017044",
+      "https://www.jw.org/en/library/books/2019-service-year-report/2019-country-territory/",
+      "https://www.jw.org/en/library/books/2020-service-year-report/2020-country-territory/",
+      "https://www.jw.org/en/library/books/2021-service-year-report/2021-country-territory/",
+      "https://www.jw.org/en/library/books/2022-Service-Year-Report-of-Jehovahs-Witnesses-Worldwide/2022-Country-and-Territory-Reports/",
+      "https://www.jw.org/en/library/books/2023-Service-Year-Report-of-Jehovahs-Witnesses-Worldwide/2023-Country-and-Territory-Reports/"
+    ],
+    "verification": "Peak and population columns retained from upstream CSV. 2016-2021, 2023 and 2024 rows checked against primary report tables. 2014-2015 and 2022 retain upstream transcription unless subsequently annotated in the source-check log. The upstream average column duplicates peaks in 2017-2018; no average imputation is used. No claim that all underlying organizational records were independently audited."
+  },
+  "newzealand": {
+    "n": 5,
+    "years": "2001,2006,2013,2018,2023",
+    "observable": "No religion count / census usually resident population count (all residents, including unclassified/nonresponse)",
+    "sources": [
+      "https://www.stats.govt.nz/news/losing-our-religion/",
+      "https://www.stats.govt.nz/information-releases/2023-census-population-dwelling-and-housing-highlights/",
+      "https://www.stats.govt.nz/information-releases/2013-census-usually-resident-population-counts/",
+      "https://www.stats.govt.nz/information-releases/2018-census-population-and-dwelling-counts/",
+      "https://teara.govt.nz/sites/default/files/2412-data_0.txt"
+    ],
+    "verification": "2001-2018 no-religion counts from Stats NZ 2019 release; 2023 from Stats NZ 2024 release. 2001 population from government Te Ara table; 2006 = 4,242,048 - 214,101 from Stats NZ; later totals from Stats NZ. Random rounding can produce differences of 3 persons across published tables. 2013 count uses the 2019 release value 1,635,345, not later 1,635,348.",
+    "comparability": "Uniform denominator does not remove nonresponse, processing or administrative-data changes. Complement is NOT exclusively religious. Published percentage series 29.6,34.6,41.9,48.2,51.6 is retained separately for a denominator/processing sensitivity analysis, not mixed into primary counts."
+  }
+}

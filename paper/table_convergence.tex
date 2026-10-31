@@ -1,0 +1,13 @@
+\begin{table}[!htbp]\centering\small
+\caption{Finite-step stochastic checks on a common annual grid over 216 years, using 100 replicates per row. MAE is against the ODE; MCSE is the mean pointwise standard error of the replicate mean. Both are fractions. These independently sampled errors need not decrease monotonically with step size.}\label{tab:convergence}
+\begin{tabular}{lrrr}\toprule Scenario & $\Delta t$ (years) & MAE & Mean pointwise MCSE\\\midrule
+A & 0.100 & 0.001273 & 0.001076\\
+A & 0.050 & 0.002118 & 0.000925\\
+A & 0.025 & 0.002269 & 0.001094\\
+B & 0.100 & 0.000217 & 0.000423\\
+B & 0.050 & 0.000191 & 0.000430\\
+B & 0.025 & 0.000264 & 0.000414\\
+C & 0.100 & 0.000624 & 0.001337\\
+C & 0.050 & 0.000735 & 0.001325\\
+C & 0.025 & 0.001438 & 0.001360\\
+\bottomrule\end{tabular}\end{table}

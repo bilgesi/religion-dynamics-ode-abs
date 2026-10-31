@@ -1,148 +1,39 @@
-# Religious Spread Model (ODE + ABS)
+# Religion dynamics: reconciled manuscript and reproducibility package
 
-A computational framework for modeling religious dynamics using both Ordinary Differential Equations (ODE) and Agent-Based Simulation (ABS) approaches.
+This is the executed revision of **An Epidemiological Modeling Take on Religion Dynamics**.
+It contains the revised manuscript, the supplied bibliography with targeted corrections and new data references, all nine original-named PDF figures, three additional holdout figures, and the corresponding code, data and numerical results.
 
-## Abstract
+## Read or compile the paper
 
-Understanding the spread and decline of religious groups in populations is a fundamental challenge in social dynamics. In this study, we present a hybrid computational framework that integrates deterministic mean-field dynamics (ODE) with stochastic agent-based simulation (ABS) to model multi-strain religious dynamics. The framework enables rapid scenario exploration through ODE simulations and detailed behavior modeling through ABS, allowing researchers to study complex religious spread patterns, phase transitions, and historical data fitting.
+Open `paper/main.pdf`. The upload-ready LaTeX project is the entire `paper/` directory. Compile `main.tex` with PDFLaTeX, BibTeX, and PDFLaTeX twice. `main.tex` is self-contained as to numerical tables and macros; it still requires `biblio.bib` and the accompanying PDF figures. `manuscript_template.tex` is the maintainable source with generated numerical inputs. Edit that template rather than the expanded `main.tex` when rerunning the pipeline.
 
-## Table of Contents
+## Reproduce the analysis
 
-1. [Code Usage](#code-usage)
-2. [The Model](#the-model)
-3. [Key Scenarios](#key-scenarios)
-4. [Data Preparation](#data-preparation)
-5. [Dependencies](#dependencies)
-6. [Contributing](#contributing)
-7. [Bug Reports](#bug-reports)
-8. [Contact](#contact)
-
-## Code Usage
-
-### Run the experiments shown in the paper:
-
-1. Clone the repository
-2. Install the `requirements.txt` file
-3. Run experiments from the project root directory:
+Use Python 3.13 in a fresh virtual environment. From this project directory:
 
 ```bash
-# Run all scenario experiments (A, B, C)
-python experiments/scenarios/run_scenarios.py
-
-# Generate phase transition heatmap
-python experiments/heatmaps/heatmap_abc_abs.py
-
-# Historical data fitting
-python experiments/historical_fit/fig_historic_fit.py
+python -m venv .venv
+# Activate .venv using the command for your operating system.
+python -m pip install -r code/requirements.txt
+cd code
+python -m unittest discover -s tests -v
+python run_all.py
+python make_paper_assets.py
+cd ..
 ```
 
-### Use in your project:
+`run_all.py` runs all simulations, historical full-data fits, genuinely training-only holdout fits, ablations, local stability analysis, numerical comparisons and the finite-horizon sensitivity map. It then generates the numerical PDF figures. It makes **no network requests**. `make_paper_assets.py` generates numerical tables/macros and expands the LaTeX template. For the static schematic, compile `code/paper_sources/scheme.tex` with PDFLaTeX and copy its PDF to `paper/scheme.pdf`. The already-compiled schematic is included. On a POSIX system with LaTeX installed, `sh build.sh` performs the complete numerical and document build.
 
-1. Clone the repository
-2. Install the `requirements.txt` file
-3. Import and use the model components:
+The code also accepts `python run_all.py --part simulations`, `--part historical`, or `--part figures`. Running only `figures` requires the included numerical outputs. Main simulations use 100 stochastic replicates each; ODE comparisons use 30 configurations with 20 replicates each. Random seeds and input/source SHA-256 hashes are in `code/results/run_manifest.json`. Numeric arrays and curves are retained in `code/results/`.
 
-```python
-from src.scenarios import scenario_A, scenario_B, scenario_C
-from src.ode.ode_solver import run_ode
-from src.abs.sim_abs import run_abs
+## What changed
 
-# Load a scenario
-params, init = scenario_A()
+Read `audit/REVISION_NOTES.md` for the editor-comment mapping and `audit/UPSTREAM_PROVENANCE.md` for code lineage. The principal corrections are consistent annual units; complete Scenario B forcing schedules; an actual symmetric, locally stable coexistence example; event-aware ODE integration; competing-event stochastic updates; corrected historical observation definitions; continuous fitting without breakpoint resets; identifiable reduced parameterizations; temporal holdouts; and explicit limits on empirical and causal claims.
 
-# Run ODE simulation
-ode_result = run_ode(params, S0, B0, M0, P0)
+The historical fits intentionally do **not** claim to calibrate the full multi-religion, role-structured system. They are reduced descriptive benchmarks. No measured social or political covariate has been fitted. These are scientific scope boundaries, not hidden implementation options.
 
-# Run ABS simulation
-abs_result = run_abs(params, roles, rel_ids, seed=42)
-```
+## Source verification boundaries
 
-### Demo:
+The complete Swedish percentage table was checked against its official PDF. New Zealand numerators and all-resident denominators are documented against government sources. Turkey uses a consistent peak-publisher series, not a mixture of peak and average counts. The exact scope of primary-source checks, including any retained upstream transcriptions, is explicit in `code/data/provenance.json`. The bibliography retains the user's broader reference library; targeted repairs and missing references were checked, but the package does not claim an exhaustive independent bibliographic audit of every historical book or article.
 
-Example scripts demonstrating various use cases are available in the `experiments/` directory:
-- `experiments/scenarios/` - Scenario runners for A, B, C
-- `experiments/historical_fit/` - Historical data fitting examples
-- `experiments/heatmaps/` - Phase transition analysis
-
-## The Model
-
-![Model Scheme](paper/figures/scheme.png)
-
-*A schematic view of the model's structure for the case of two religions (|R| = 2). Red (small, top-facing) arrows indicate death.*
-
-The Religious Spread Model is constructed from two complementary approaches:
-
-1. **ODE Model**: Deterministic mean-field dynamics for rapid scenario exploration and parameter sweeps. Implements a multi-strain compartmental model with compartments S (susceptible), B_r (believers), M_r (missionaries), and P_r (practitioners) for each religion r.
-
-2. **ABS Model**: Stochastic agent-based simulation for detailed behavior modeling and validation. Each agent transitions between compartments based on probabilistic rates, enabling the study of stochastic effects and finite-population dynamics.
-
-### Model Components
-
-- **Conversion Dynamics**: Susceptible individuals (S) convert to religion r via rate λ_r(t) = β_r(t) × M_r / N
-- **Role Transitions**: Believers (B_r) and Missionaries (M_r) transition via σ_r and κ_r rates
-- **Practice Transitions**: B_r → P_r and M_r → P_r transitions via τB_r and τM_r
-- **Disaffiliation**: B_r, M_r, P_r → S transitions via ρB_r, ρM_r, ρP_r
-- **Mutation**: Missionaries can mutate between strains via ν matrix (schism dynamics)
-- **Demography**: Birth (b) and death (μ) rates applied to all compartments
-
-The framework allows easy insertion of domain knowledge through parameter configuration, scenario definitions, and context-dependent rate modulation.
-
-## Key Scenarios
-
-The framework includes three predefined scenarios representing different religious dynamics regimes:
-
-### Scenario A: Dominant Religion Replacement
-- **Description**: Large religion emerging from another large religion
-- **Mechanism**: Mutation from parent religion (r=1) to new religion (r=2) on missionaries enables emergence
-- **Use Case**: Modeling schisms and major religious splits
-
-### Scenario B: Sequential Cult Invasions
-- **Description**: Small cults come and go with piecewise time-varying parameters
-- **Mechanism**: Multiple cult strains (r=2..6) seeded at scheduled times, each with pre-crash (high growth) and post-crash (rapid decay) phases
-- **Use Case**: Modeling transient religious movements and cult dynamics
-
-### Scenario C: Transient Minority Dynamics
-- **Description**: Second religion rises from small seed, reaches peak, then dies out
-- **Mechanism**: High initial conversion rate balanced by high disaffiliation rates
-- **Use Case**: Modeling short-lived religious movements and failed conversions
-
-## Data Preparation
-
-The data files to be analyzed should be CSV files, with each column containing numerical values of each variable. Historical data fitting scripts expect time series data with columns for:
-- Time points
-- Population compartments (S, B, M, P) for each religion
-- Optional: demographic data (birth rates, death rates)
-
-Processed time series are stored in `data/processed/`, while raw data from different countries (New Zealand, Finland, Sweden, Jehovah's Witnesses from Turkey) are stored in `data/raw/`.
-
-## Dependencies
-
-1. numpy >= 1.24.0
-2. scipy >= 1.10.0
-3. pandas >= 2.0.0
-4. matplotlib >= 3.7.0
-
-Install all dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Contributing
-
-We welcome contributions to this project! Pull requests are very welcome. Please send us an email with your suggestions or requests, or open an issue on GitHub.
-
-## Bug Reports
-
-Report bugs and issues on the GitHub Issues page. We guarantee a reply as fast as we can! :)
-
-## Contact
-
-- **Bilge Taskin** - bilgetaskinn@outlook.com | [LinkedIn](https://www.linkedin.com/in/bilgesi/)
-- **Teddy Lazebnik** - teddy.lazebnik@ju.se | [LinkedIn](https://www.linkedin.com/in/teddy-lazebnik/)
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This package is ready for author review and repository upload. It has not been uploaded to GitHub, submitted to a journal, or independently peer reviewed. Do not mix its figures or tables with the old manuscript.
